@@ -24,20 +24,24 @@ addNumber.addEventListener("click", () => {
 });
 
 finalize.addEventListener("click", () => {
-  res.innerHTML = `<p>Ao todos, temos ${arrNumbers.length} números cadastrados.</p>`;
-  res.innerHTML += `<p>O maior valor informado foi ${Math.max(
-    ...arrNumbers
-  )}.</p>`;
-  res.innerHTML += `<p>O menor valor informado foi ${Math.min(
-    ...arrNumbers
-  )}.</p>`;
-  const sum = arrNumbers.reduce((initialValue, numbers) => {
-    return initialValue + numbers;
-  }, 0);
-  const average = sum / arrNumbers.length;
+  if (arrNumbers.length === 0) {
+    alert("Adicione algum valor");
+  } else {
+    res.innerHTML = `<p>Ao todos, temos ${arrNumbers.length} números cadastrados.</p>`;
+    res.innerHTML += `<p>O maior valor informado foi ${Math.max(
+      ...arrNumbers
+    )}.</p>`;
+    res.innerHTML += `<p>O menor valor informado foi ${Math.min(
+      ...arrNumbers
+    )}.</p>`;
+    const sum = arrNumbers.reduce((initialValue, numbers) => {
+      return initialValue + numbers;
+    }, 0);
+    const average = sum / arrNumbers.length;
 
-  res.innerHTML += `<p>Somando todos os valores temos ${sum}.</p>`;
-  res.innerHTML += `<p>A média dos valores digitados é ${average.toFixed(
-    0
-  )}.</p>`;
+    res.innerHTML += `<p>Somando todos os valores temos ${sum}.</p>`;
+    res.innerHTML += `<p>A média dos valores digitados é ${average.toFixed(
+      0
+    )}.</p>`;
+  }
 });
